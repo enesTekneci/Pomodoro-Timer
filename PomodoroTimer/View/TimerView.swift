@@ -28,6 +28,10 @@ struct TimerView: View, Observable {
                 .bold()
                 .padding()
             
+            Text("\(timerModel.studySessions)")
+                .font(.system(size: 20))
+            
+
             HStack {
                 Button(action: {
                     if timerModel.isRunning {

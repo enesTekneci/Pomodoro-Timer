@@ -9,6 +9,10 @@ import SwiftUI
 
 @main
 struct PomodoroTimerApp: App {
+    init() {
+        requestNotificationPermission()
+    }
+
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B2AA61A2C61070700155DFE /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AA6192C61070700155DFE /* TimerView.swift */; };
-		0B2AA61C2C610B2B00155DFE /* DotsAllForNow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0B2AA61B2C610B2B00155DFE /* DotsAllForNow.ttf */; };
 		0B2AA6252C6161F700155DFE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AA6242C6161F700155DFE /* SettingsView.swift */; };
 		0B2AA6272C621B1200155DFE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B2AA6262C621B1200155DFE /* ContentView.swift */; };
 		0BB6A3392C52A26900D5CEFC /* PomodoroTimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB6A3382C52A26900D5CEFC /* PomodoroTimerApp.swift */; };
@@ -39,8 +38,6 @@
 
 /* Begin PBXFileReference section */
 		0B2AA6192C61070700155DFE /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
-		0B2AA61B2C610B2B00155DFE /* DotsAllForNow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DotsAllForNow.ttf; sourceTree = "<group>"; };
-		0B2AA61D2C610C2900155DFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0B2AA6242C6161F700155DFE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		0B2AA6262C621B1200155DFE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0BB6A3352C52A26900D5CEFC /* PomodoroTimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PomodoroTimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,14 +100,10 @@
 		0BB6A3372C52A26900D5CEFC /* PomodoroTimer */ = {
 			isa = PBXGroup;
 			children = (
-				0B2AA61D2C610C2900155DFE /* Info.plist */,
 				0BB6A3382C52A26900D5CEFC /* PomodoroTimerApp.swift */,
-				0B2AA6262C621B1200155DFE /* ContentView.swift */,
-				0BB6A3622C52A52E00D5CEFC /* TimerModel.swift */,
-				0B2AA6192C61070700155DFE /* TimerView.swift */,
-				0B2AA6242C6161F700155DFE /* SettingsView.swift */,
-				0B2AA61B2C610B2B00155DFE /* DotsAllForNow.ttf */,
+				0BC2B53E2C625A6D00D08607 /* View */,
 				0BB6A33C2C52A26A00D5CEFC /* Assets.xcassets */,
+				0BC2B53F2C625AA300D08607 /* Model */,
 				0BB6A33E2C52A26A00D5CEFC /* Preview Content */,
 			);
 			path = PomodoroTimer;
@@ -139,6 +132,24 @@
 				0BB6A3552C52A26A00D5CEFC /* PomodoroTimerUITestsLaunchTests.swift */,
 			);
 			path = PomodoroTimerUITests;
+			sourceTree = "<group>";
+		};
+		0BC2B53E2C625A6D00D08607 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0B2AA6192C61070700155DFE /* TimerView.swift */,
+				0B2AA6262C621B1200155DFE /* ContentView.swift */,
+				0B2AA6242C6161F700155DFE /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0BC2B53F2C625AA300D08607 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0BB6A3622C52A52E00D5CEFC /* TimerModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,7 +256,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B2AA61C2C610B2B00155DFE /* DotsAllForNow.ttf in Resources */,
 				0BB6A3402C52A26A00D5CEFC /* Preview Assets.xcassets in Resources */,
 				0BB6A33D2C52A26A00D5CEFC /* Assets.xcassets in Resources */,
 			);
