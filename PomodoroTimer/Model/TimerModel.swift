@@ -35,18 +35,25 @@ class TimerModel: ObservableObject {
         self.initialDuration = studyDuration
         self.shortBreakDuration = shortBreakDuration
         self.longBreakDuration = longBreakDuration
-        self.lastResetDate = Date()
+        self.lastResetDate = TimerModel.calculateNextResetDate(from: Date())
         requestNotificationPermission()
         resetStudySessionsIfNeeded()
     }
 
     private func resetStudySessionsIfNeeded() {
-            let calendar = Calendar.current
-            if !calendar.isDateInToday(lastResetDate) {
-                studySessions = 0
-                lastResetDate = Date()
-            }
+        let now = Date()
+        if now >= lastResetDate {
+            studySessions = 0
+            lastResetDate = TimerModel.calculateNextResetDate(from: now)
         }
+    }
+    
+    private static func calculateNextResetDate(from date: Date) -> Date {
+        var calendar = Calendar.current
+        calendar.timeZone = .current
+        let startOfDay = calendar.startOfDay(for: date)
+        return calendar.date(byAdding: .minute, value: 1, to: startOfDay.addingTimeInterval(24 * 60 * 60))!
+    }
     
     func start() {
             isRunning = true
