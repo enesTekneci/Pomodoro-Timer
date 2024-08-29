@@ -28,28 +28,40 @@ class TimerModel: ObservableObject {
     @Published var isAnimating: AnimationState = AnimationState(animating: false)
     
     private var timer: AnyCancellable?
+    private var lastResetDate: Date
 
     init(studyDuration: Int, shortBreakDuration: Int, longBreakDuration: Int) {
         self.timeRemaining = studyDuration
         self.initialDuration = studyDuration
         self.shortBreakDuration = shortBreakDuration
         self.longBreakDuration = longBreakDuration
+        self.lastResetDate = Date()
         requestNotificationPermission()
+        resetStudySessionsIfNeeded()
     }
 
-    func start() {
-        isRunning = true
-        timer = Timer.publish(every: 1, on: .main, in: .common)
-            .autoconnect()
-            .sink { _ in
-                if self.timeRemaining > 0 {
-                    self.timeRemaining -= 1
-                } else {
-                    self.cycleModes()
-                }
+    private func resetStudySessionsIfNeeded() {
+            let calendar = Calendar.current
+            if !calendar.isDateInToday(lastResetDate) {
+                studySessions = 0
+                lastResetDate = Date()
             }
-        isAnimating.animating = true
-    }
+        }
+    
+    func start() {
+            isRunning = true
+            resetStudySessionsIfNeeded()
+            timer = Timer.publish(every: 1, on: .main, in: .common)
+                .autoconnect()
+                .sink { _ in
+                    if self.timeRemaining > 0 {
+                        self.timeRemaining -= 1
+                    } else {
+                        self.cycleModes()
+                    }
+                }
+            isAnimating.animating = true
+        }
 
     func stop() {
         isRunning = false
